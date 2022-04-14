@@ -1,0 +1,35 @@
+# Building a Module from Scratch
+- Based on the knowledge acquired from previous chapters, we will now build a **miniature Helpdesk module**.
+## Module requirements
+- Module requirements are defined as follows:
+    - **Name** used, `Foggyline/Helpdesk`
+    - **Data** to be stored in **table** is called `foggyline_helpdesk_ticket`
+    - **Ticket entity** will contain `ticket_id`, `customer_id`, `title`, `severity`, `created_at`, and `status` properties.
+    - The `customer_id` property is to be **foreign key** on the `customer_entity` table
+    - There will be three available **ticket severity values**: `low`, `medium`, and `high`
+    - If not specified, the **default severity value** for **new tickets** is `low`
+    - There will be two available **ticket statuses**: `opened` and `closed`
+    - If not specified, the **default status value** for **new tickets** is `opened`
+    - Two **e-mails templates**: `store_owner_to_customer_email_template` and `customer_to_store_owner_email_template` are to be defined for pushing **e-mail updates** upon ticket creation and status change
+    - Customers will be able to **submit a ticket** through their **My Account** section
+    - Customers will be able to see all of their **previously submitted tickets** under their **My Account** section
+    - Customers will not be able to edit any **existing tickets**
+    - Once a customer submits a **new ticket**, **transactional e-mail** (let's call it **Foggyline &mdash; Helpdesk &mdash; Customer | Store Owner**) is sent to the store owner
+    - Configurable option is required for possibly overriding **Foggyline &mdash; Helpdesk &mdash; Customer | Store Owner** e-mail
+    - Admin users will be able to access a **list of all tickets** under **Customers | Helpdesk Tickets**
+    - Admin users will be able to change **ticket status** from **Opened** to **Closed** and other way round
+    - Once an admin user changes the **ticket status**, **transactional e-mail** (let's call it **Foggyline &mdash; Helpdesk &mdash; Store Owner | Customer**) is sent to the customer
+    - Configurable option is required for possibly overriding **Foggyline &mdash; Helpdesk &mdash; Store Owner | Customer** e-mail
+- With the requirements outlined, we are ready to begin our module development
+## Module development
+- Though miniature, the module will showcase the usage of **several important Magento plateform features** as we go through the following sections:
+    - Registering a module (`registration.php` and `module.xml`)
+    - Creating a configuration file (`config.xml`)
+    - Creating e-mail templates (`email_templates.xml`)
+    - Creating a system configuration file (`system.xml`)
+    - Creating access control lists (`acl.xml`)
+    - Creating an installation script (`InstallSchema.php`)
+    - Managing entity persistence (`model`, `resource`, `collection`)
+    - Building a frontend interface
+    - Building a backend interface
+    - Creating unit tests
